@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ekz</title>
+</head>
+<body>
+    <form method="post" th:action="@{/newStudent}" th:obgect="${student}">
+        <label for="name">Имя</label>
+        <input type="text" th:field="*{student.name}" id="name">
+        <div th:if="${#fields.hasErrors('student.name')}" th:errors="*{name}"></div>
+        <br/>
+        <br/>
+        <label for="surname">Фамилия</label>
+        <input type="text" th:field="*{student.surname}" id="surname">
+        <div th:if="${#fields.hasErrors('student.surname')}" th:errors="*{surname}"></div>
+        <br/>
+        <br/>
+        <label for="mark">Оценка</label>
+        <input type="number" th:field="*{student.mark}" id="mark">
+        <div th:if="${#fields.hasErrors('student.mark')}" th:errors="*{mark}"></div>
+        <br/>
+        <br/>
+        <input type="submit" value="Сохранить и перещитать средний балл">
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+<table >
+    <tr>
+        <td>Имя</td>
+        <td>Фамилия</td>
+        <td>Оценка</td>
+    </tr>
+    <tr th:each="st:${students}">
+        <td th:text="${st.getName()}"></td>
+        <td th:text="${st.getSurname()}"></td>
+        <td th:text="${st.getMark()}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
