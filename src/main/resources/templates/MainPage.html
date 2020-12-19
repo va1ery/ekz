@@ -8,17 +8,17 @@
     <form method="post" th:action="@{/newStudent}" th:obgect="${student}">
         <label for="name">Имя</label>
         <input type="text" th:field="*{student.name}" id="name">
-        <div th:if="${#fields.hasErrors('student.name')}" th:errors="*{name}"></div>
+        <div th:if="${#fields.hasErrors('student.name')}" th:errors="*{student.name}"></div>
         <br/>
         <br/>
         <label for="surname">Фамилия</label>
         <input type="text" th:field="*{student.surname}" id="surname">
-        <div th:if="${#fields.hasErrors('student.surname')}" th:errors="*{surname}"></div>
+        <div th:if="${#fields.hasErrors('student.surname')}" th:errors="*{student.surname}"></div>
         <br/>
         <br/>
         <label for="mark">Оценка</label>
         <input type="number" th:field="*{student.mark}" id="mark">
-        <div th:if="${#fields.hasErrors('student.mark')}" th:errors="*{mark}"></div>
+        <div th:if="${#fields.hasErrors('student.mark')}" th:errors="*{student.mark}"></div>
         <br/>
         <br/>
         <input type="submit" value="Сохранить и перещитать средний балл">

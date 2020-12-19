@@ -30,7 +30,8 @@ public class MainController {
     @PostMapping("/newStudent")
     public String newStudent(@ModelAttribute("student") @Valid Student student, BindingResult bindingResult){
         if(bindingResult.hasErrors())
-            studentService.save(student);
+            return "MainPage";
+        studentService.save(student);
         return "redirect:";
     }
 
